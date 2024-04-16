@@ -28,21 +28,24 @@ let clipNames = [
 ];
 let projects = [
   {
-    image: 'textures/project-spaze.webp',
-    url: 'https://www.spaze.social/',
+    image: 'textures/project1.jpg',
+    url: 'https://bahageel1.onrender.com/',
   },
   {
-    image: 'textures/project-myteachers.jpg',
-    url: 'https://myteachers.com.au/',
+    image: 'textures/Project-AI Assistant.jpg',
+    url: 'https://doctor-ai-assistant.onrender.com/',
   },
   {
-    image: 'textures/project-wholesale.jpg',
-    url: 'https://wholesale.com.np/',
+    image: 'textures/badge.jpg',
+    url: 'https://www.dgbadge.com/certified/member/9626420560',
   },
   {
-    image: 'textures/project-pelotero.jpg',
-    url: 'https://www.peloterosenlaweb.com/',
+    image: 'textures/RAG.jpg',
+    url: 'https://generativeaiwithrag.onrender.com/',
   },
+  
+
+ 
 ];
 let aboutCameraPos = {
   x: 0.12,
@@ -64,6 +67,7 @@ let projectsCameraRot = {
   y: 0.05,
   z: 0,
 };
+
 
 // SCENE & CAMERA
 const scene = new THREE.Scene();
@@ -125,11 +129,11 @@ gltfLoader.load(
 
     // load video
     const video = document.createElement('video');
-    video.src = 'textures/arcane.mp4';
-    video.muted = true;
+    video.src = 'textures/Mohammed.mp4';
+    video.muted = false;
     video.playsInline = true;
     video.autoplay = true;
-    video.loop = true;
+    video.loop = false;
 
     // create video texture
     const videoTexture = new THREE.VideoTexture(video);
@@ -317,9 +321,9 @@ function loadIntroText() {
       new THREE.MeshPhongMaterial({ color: 0x171f27, flatShading: true }),
       new THREE.MeshPhongMaterial({ color: 0xffffff }),
     ];
-    const titleGeo = new TextGeometry('SUSHIL THAPA', {
+    const titleGeo = new TextGeometry('MOHAMMED BAHAGEEL', {
       font: font,
-      size: 0.08,
+      size: 0.06,
       height: 0.01,
     });
     titleText = new THREE.Mesh(titleGeo, textMaterials);
@@ -334,7 +338,7 @@ function loadIntroText() {
       new THREE.MeshPhongMaterial({ color: 0xffffff }),
     ];
     const subTitleGeo = new TextGeometry(
-      'Web Designer / Developer / Content Creator',
+      'AI Engineer | Data Scientist | Data Analyst',
       {
         font: font,
         size: 0.018,
@@ -604,7 +608,7 @@ function projectsMenuListener() {
   projects.forEach((project, i) => {
     const colIndex = i % 3 === 0 ? 0 : 1;
     const rowIndex = Math.floor(i / 3);
-    const geometry = new THREE.PlaneGeometry(0.71, 0.4);
+    const geometry = new THREE.PlaneGeometry(0.75, 0.4);
     const material = new THREE.MeshBasicMaterial({
       color: 0xffffff,
       map: new THREE.TextureLoader().load(project.image),
